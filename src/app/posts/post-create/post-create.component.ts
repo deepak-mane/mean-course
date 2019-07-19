@@ -4,6 +4,8 @@ import {
     Output
 } from '@angular/core';
 
+import { Post } from '../post.model';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ import {
 export class PostCreateComponent {
     enteredContent = "";
     enteredTitle = "";    
-    @Output() postCreated = new EventEmitter();
+    @Output() postCreated = new EventEmitter<Post>();
     
     // onAddPost(postInput: HTMLTextAreaElement) {
     //     // console.dir(postInput);
@@ -23,7 +25,7 @@ export class PostCreateComponent {
     // }
 
     onAddPost() {
-        const post = { 
+        const post: Post = { 
             title: this.enteredTitle,
             content: this.enteredContent
         };
